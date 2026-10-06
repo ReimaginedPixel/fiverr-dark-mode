@@ -1,0 +1,59 @@
+/* Fiverr Dark Mode: base colors plus the hooks content.js uses. Everything is scoped to
+   html.fdm-on so the popup toggle can switch it off. Most of the theme lives in the dark
+   companion stylesheets that content.js generates from Fiverr's own CSS. */
+
+html.fdm-on {
+  color-scheme: dark;
+  background-color: #121212 !important;
+  color: #e8e8e8;
+}
+html.fdm-on body {
+  background-color: #121212 !important;
+}
+
+/* The page stays hidden (on the dark background) until the dark versions of its stylesheets
+   are in place, so it never flashes white. content.js lifts this within 2.5s at most. */
+html.fdm-on.fdm-loading body {
+  opacity: 0 !important;
+}
+
+/* Inline style colors, converted by content.js into custom properties. */
+html.fdm-on [data-fdm-i~="ibg"] { background-color: var(--fdm-ibg) !important; }
+html.fdm-on [data-fdm-i~="iimg"] { background-image: var(--fdm-iimg) !important; }
+html.fdm-on [data-fdm-i~="ifg"] { color: var(--fdm-ifg) !important; }
+html.fdm-on [data-fdm-i~="ibt"] { border-top-color: var(--fdm-ibt) !important; }
+html.fdm-on [data-fdm-i~="ibr"] { border-right-color: var(--fdm-ibr) !important; }
+html.fdm-on [data-fdm-i~="ibb"] { border-bottom-color: var(--fdm-ibb) !important; }
+html.fdm-on [data-fdm-i~="ibl"] { border-left-color: var(--fdm-ibl) !important; }
+html.fdm-on [data-fdm-i~="ifill"] { fill: var(--fdm-ifill) !important; }
+html.fdm-on [data-fdm-i~="istroke"] { stroke: var(--fdm-istroke) !important; }
+html.fdm-on [data-fdm-i~="ish"] { box-shadow: var(--fdm-ish) !important; }
+
+/* SVG fill/stroke attributes. Zero specificity: these only replace the attribute itself and
+   never beat the site's own CSS, which is already converted. */
+:where(html.fdm-on [data-fdm-i~="afill"]) { fill: var(--fdm-afill); }
+:where(html.fdm-on [data-fdm-i~="astroke"]) { stroke: var(--fdm-astroke); }
+
+html.fdm-on input::placeholder,
+html.fdm-on textarea::placeholder {
+  color: #a0a3a8 !important;
+}
+
+html.fdm-on ::selection {
+  background: #1dbf73;
+  color: #0b0b0b;
+}
+
+html.fdm-on ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: #121212;
+}
+html.fdm-on ::-webkit-scrollbar-thumb {
+  background: #3a3b3f;
+  border-radius: 5px;
+  border: 2px solid #121212;
+}
+html.fdm-on ::-webkit-scrollbar-thumb:hover {
+  background: #4a4b50;
+}
